@@ -1,7 +1,8 @@
 # Fake Curriculum
 
-Here you can see a fake curriculum forked from [Jorge Lopez](@jorloque), who was
-my teacher of `Developing Environment` and `Web Applications Deployment`.
+Here you can see a fake curriculum forked from
+[Jorge Lopez](https://github.com/jorloque), who was my teacher of
+`Developing Environment` and `Web Applications Deployment`.
 
 ## Dual Deployment
 
