@@ -18,3 +18,10 @@ sudo apt-get update
 
 # Install latest version
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Add user to the Docker group in order to get permissions
+sudo usermod -aG docker $USER
+
+echo
+echo All is done. Please reboot the machine before use Docker.
+echo
