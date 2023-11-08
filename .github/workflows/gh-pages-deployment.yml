@@ -18,7 +18,7 @@ jobs:
       - name: Minify html, css and js files
         uses: pabcrudel/static-site-optimizer@main
         with:
-          project_path: .
+          project_path: website
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.3
