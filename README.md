@@ -6,8 +6,8 @@ Here you can see a fake curriculum forked from
 
 ## Dual Deployment
 
-This fake curriculum is deployed on GitHub Pages. However, it is deployed on AWS
-using S3 with Static Site Hosting enabled.
+This fake curriculum is deployed on GitHub Pages, Azure MV using Apache, Nginx
+and Docker and on AWS S3 with Static Site Hosting enabled.
 
 ### GitHub Pages
 
@@ -45,6 +45,27 @@ jobs:
         with:
           folder: dist
 ```
+
+### Azure MV
+
+This feature has 4 versions:
+
+1. Apache
+1. Nginx
+1. Docker with httpd (Apache) image
+1. Docker with nginx image
+
+In order to perform these tasks I've created bash [scripts to install Docker and
+Apache-Nginx containers](docker). Then, using [Rsync Composite Action by
+up9cloud](https://github.com/marketplace/actions/action-rsync) and my own
+workflow, the website folder is deployed on Azure MV. There are 3 types of
+workflows depending on it's target:
+
+1. Base workflow: common for Apache and Nginx. It's target is the same
+(`/var/www/html/`).
+1. Docker workflow: It's target is the folder linked whit the container:
+    - Apache: (`/home/$USER/apache-docker/`)
+    - Nginx: (`/home/$USER/nginx-docker/`)
 
 ### AWS S3 Hosting Bucket
 
