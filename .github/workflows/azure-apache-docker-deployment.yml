@@ -1,0 +1,22 @@
+name: Deploy to Azure MV with an Apache Docker running
+
+on: workflow_dispatch
+
+jobs:
+  rsync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v3
+
+      - name: Action - rsync
+        uses: up9cloud/action-rsync@v1.4
+        env:
+          HOST: ${{ secrets.HOST }}
+          USER: ${{ secrets.USER }}
+          KEY: ${{ secrets.KEY }}
+          TARGET: /home/${{ secrets.USER }}/apache-docker/
+          SOURCE: website/
+          
+          # 1. --no-perms: Does not preserve permissions.
+          ARGS_MORE: --no-perms
