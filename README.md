@@ -17,33 +17,14 @@ own
 
 ```yml
 # .github/workflows/gh-pages-deployment.yml
+[...]
 
-name: GitHub Pages Deployment
+  - name: Minify html, css and js files
+    uses: pabcrudel/static-site-optimizer@main
+    with:
+      project_path: website
 
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  ci-cd:
-    runs-on: ubuntu-latest
-    name: Minify & Deploy
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout files
-        uses: actions/checkout@v3
-
-      - name: Minify html, css and js files
-        uses: pabcrudel/static-site-optimizer@main
-        with:
-          project_path: .
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
-        with:
-          folder: dist
+[...]
 ```
 
 ### Azure MV
