@@ -1,0 +1,17 @@
+name: Display Issue Event Details
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  show-issue-details:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print event details
+      run: |
+        echo "Issue number: ${{ github.event.issue.number }}"
+        echo "Issue title: ${{ github.event.issue.title }}"
+        echo "Created by: ${{ github.event.issue.user.login }}"
